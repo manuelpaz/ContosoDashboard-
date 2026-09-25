@@ -36,16 +36,16 @@ A user needs to quickly locate files by project, category, tags, or uploader so 
 ---
 
 ### User Story 3 - Share and manage access to documents (Priority: P2)
-A document owner or project manager needs to share files with specific users or teams and manage who can access them. This ensures the right people can collaborate while maintaining a clear and auditable record of sharing.
+A document owner or project manager needs to share files with users who are already part of the same project and manage who can access them. This keeps collaboration scoped to the project context and aligns with the application’s existing membership-based authorization model.
 
-**Why this priority**: Controlled sharing improves team coordination but depends on access rules and user permissions being enforced correctly.
+**Why this priority**: Controlled sharing improves team coordination but depends on access rules and user permissions being enforced correctly. Limiting sharing to project members reduces the risk of cross-project leaks in the training environment.
 
-**Independent Test**: A user can share a document with an authorized colleague, and the recipient can view the shared document in their shared-items view while unauthorized users cannot.
+**Independent Test**: A user can share a document with an authorized project colleague, and the recipient can view the shared document in their shared-items view while users outside the project cannot.
 
 **Acceptance Scenarios**:
 
-1. **Given** a user owns or manages a document, **When** they share it with a specific recipient, **Then** the recipient receives an in-app notification and can access the document in their shared list if authorized.
-2. **Given** a user without permission attempts to access a document they were not assigned to, **When** they navigate to the file or its details, **Then** the system prevents access and does not expose the document contents.
+1. **Given** a user owns or manages a document in a project, **When** they share it with a project member who is already on that project, **Then** the recipient receives an in-app notification and can access the document in their shared list if authorized.
+2. **Given** a user without project membership or authorization attempts to access a shared document, **When** they navigate to the file or its details, **Then** the system prevents access and does not expose the document contents.
 
 ---
 
@@ -88,7 +88,7 @@ Users need visibility into recent document activity and task-related attachments
 - **FR-011**: Users MUST be able to download or preview any document they are authorized to access when the file type supports preview in the browser.
 - **FR-012**: Document owners and authorized managers MUST be able to update metadata and replace a document with a newer version when needed.
 - **FR-013**: Users MUST be able to delete their own documents, and managers MUST be able to remove documents in their project scope after confirmation.
-- **FR-014**: Users MUST be able to share documents with specific users or groups, and recipients MUST receive in-app notification of the shared access.
+- **FR-014**: Users MUST be able to share documents only with users who are already members of the same project or otherwise explicitly authorized by the project access model, and recipients MUST receive in-app notification of the shared access.
 - **FR-015**: The system MUST show recently uploaded documents in relevant dashboard and project contexts and must associate attachments with the correct task and project when applicable.
 - **FR-016**: The system MUST record document-related activities such as upload, download, deletion, and share actions for audit and reporting.
 - **FR-017**: Administrators MUST be able to review document activity trends and access patterns through reporting and audit views.
@@ -106,6 +106,7 @@ Users need visibility into recent document activity and task-related attachments
 
 - All users access the application through the existing role-based permission model, which includes employees, team leads, project managers, and administrators.
 - Documents can be associated with a project or kept as personal files depending on the user’s role and context.
+- Document sharing is limited to project-aligned access in the first release, reducing cross-project exposure and keeping the feature aligned with the existing project membership model.
 - The application will support a small set of common document types and preview behavior for the formats most likely to be viewed in a browser.
 - In-app notifications are sufficient for document-sharing updates and project-related activity alerts.
 - The dashboard and project views should surface recent activity without requiring a full workflow redesign.
