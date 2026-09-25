@@ -15,9 +15,9 @@
 
 **Purpose**: Prepare the document feature structure and configuration before implementing the file workflow.
 
-- [ ] T001 Create secure document feature folders and storage conventions under `ContosoDashboard/Models/`, `ContosoDashboard/Services/`, and `ContosoDashboard/Pages/`
-- [ ] T002 Add the initial document-related DbContext configuration and seed hooks in `ContosoDashboard/Data/ApplicationDbContext.cs`
-- [ ] T003 [P] Add upload/storage settings and Azure queue placeholders in `ContosoDashboard/appsettings.json` and `ContosoDashboard/Program.cs`
+- [X] T001 Create secure document feature folders and storage conventions under `ContosoDashboard/Models/`, `ContosoDashboard/Services/`, and `ContosoDashboard/Pages/`
+- [X] T002 Add the initial document-related DbContext configuration and seed hooks in `ContosoDashboard/Data/ApplicationDbContext.cs`
+- [X] T003 [P] Add upload/storage settings and Azure queue placeholders in `ContosoDashboard/appsettings.json` and `ContosoDashboard/Program.cs`
 
 ---
 
@@ -25,10 +25,10 @@
 
 **Purpose**: Build the storage, validation, and access foundation before any document story can be delivered.
 
-- [ ] T004 Implement `ContosoDashboard/Models/Document.cs`, `ContosoDashboard/Models/DocumentShare.cs`, and `ContosoDashboard/Models/DocumentScanJob.cs` with the validation constraints from `data-model.md`
-- [ ] T005 [P] Implement `ContosoDashboard/Services/IFileStorageService.cs` and `ContosoDashboard/Services/LocalFileStorageService.cs` for secure local file persistence outside `wwwroot`
-- [ ] T006 Implement `ContosoDashboard/Services/DocumentService.cs` with upload validation, metadata persistence, versioning, and access filtering logic
-- [ ] T007 [P] Add queue-message and scan-status workflow hooks in `ContosoDashboard/Services/DocumentService.cs` and `ContosoDashboard/Data/ApplicationDbContext.cs` for `Queued`, `Scanning`, `Clean`, `Infected`, and `Failed` states
+- [X] T004 Implement `ContosoDashboard/Models/Document.cs`, `ContosoDashboard/Models/DocumentShare.cs`, and `ContosoDashboard/Models/DocumentScanJob.cs` with the validation constraints from `data-model.md`
+- [X] T005 [P] Implement `ContosoDashboard/Services/IFileStorageService.cs` and `ContosoDashboard/Services/LocalFileStorageService.cs` for secure local file persistence outside `wwwroot`
+- [X] T006 Implement `ContosoDashboard/Services/DocumentService.cs` with upload validation, metadata persistence, versioning, and access filtering logic
+- [X] T007 [P] Add queue-message and scan-status workflow hooks in `ContosoDashboard/Services/DocumentService.cs` and `ContosoDashboard/Data/ApplicationDbContext.cs` for `Queued`, `Scanning`, `Clean`, `Infected`, and `Failed` states
 
 **Checkpoint**: The foundation is ready for story implementation.
 
@@ -42,10 +42,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T008 [US1] Add upload validation for title, category, supported MIME types, and 25 MB size limit in `ContosoDashboard/Services/DocumentService.cs`
-- [ ] T009 [P] [US1] Implement secure file persistence and unique server-side naming in `ContosoDashboard/Services/LocalFileStorageService.cs`
-- [ ] T010 [US1] Persist uploaded document metadata, project association, and uploader details in `ContosoDashboard/Data/ApplicationDbContext.cs`
-- [ ] T011 [P] [US1] Create the upload form and document page in `ContosoDashboard/Pages/Documents.razor` and link it from `ContosoDashboard/Shared/NavMenu.razor`
+- [X] T008 [US1] Add upload validation for title, category, supported MIME types, and 25 MB size limit in `ContosoDashboard/Services/DocumentService.cs`
+- [X] T009 [P] [US1] Implement secure file persistence and unique server-side naming in `ContosoDashboard/Services/LocalFileStorageService.cs`
+- [X] T010 [US1] Persist uploaded document metadata, project association, and uploader details in `ContosoDashboard/Data/ApplicationDbContext.cs`
+- [X] T011 [P] [US1] Create the upload form and document page in `ContosoDashboard/Pages/Documents.razor` and link it from `ContosoDashboard/Shared/NavMenu.razor`
 
 **Checkpoint**: User Story 1 should be independently functional and testable.
 
